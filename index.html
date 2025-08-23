@@ -237,7 +237,8 @@
                 
                 if (/[\u4e00-\u9fa5]/.test(processedName)) {
                     processedName = pinyin.pinyin(processedName, { style: pinyin.STYLE_NORMAL }).flat().join('');
-                } else if (wanakana.isJapanese(processedName)) {
+                }
+                if (wanakana.isJapanese(processedName)) {
                     processedName = wanakana.toRomaji(processedName);
                 }
                 
