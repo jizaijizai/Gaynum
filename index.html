@@ -243,7 +243,7 @@
                 
                 const letters = processedName.replace(/[^a-z]/g, '');
                 const numbers = processedName.replace(/[^0-9]/g, '');
-                const specials = processedName.replace(/[^a-z0-9]/g, '');
+                const specials = processedName.replace(/[a-z0-9]/g, '');
 
                 return { letters, numbers, specials };
             }
