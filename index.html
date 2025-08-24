@@ -237,13 +237,14 @@
                 
                 if (/[\u4e00-\u9fa5]/.test(processedName)) {
                     processedName = pinyin.pinyin(processedName, { style: pinyin.STYLE_NORMAL }).flat().join('');
-                } else if (wanakana.isJapanese(processedName)) {
+                }
+                if (wanakana.isJapanese(processedName)) {
                     processedName = wanakana.toRomaji(processedName);
                 }
                 
                 const letters = processedName.replace(/[^a-z]/g, '');
                 const numbers = processedName.replace(/[^0-9]/g, '');
-                const specials = processedName.replace(/[^a-z0-9]/g, '');
+                const specials = processedName.replace(/[a-z0-9]/g, '');
 
                 return { letters, numbers, specials };
             }
